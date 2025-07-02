@@ -1,5 +1,5 @@
 <h1 align="center">Hola 👋, yo soy Daniel Britto</h1>
-<h3 align="center">Soy desarrollador mobile con iOs y web con React, tengo 25 años de edad me gusta afrontar diferentes tipos de retos y aprender día a día.</h3>
+<h3 align="center">Soy desarrollador mobile con iOs y web con React, me gusta afrontar diferentes tipos de retos y aprender día a día.</h3>
 
 - 🔭 Actualmente me encuentro realizando mis practicas
 
