@@ -8,10 +8,15 @@ Estoy realizando mis prácticas profesionales, fortaleciendo mis habilidades en 
 
 
 - 🌱 Conocimientos y habilidades
+  
       - 📱 SwiftUI: diseño de interfaces, manejo de estado (@State, @Binding, @ObservableObject), navegación, MVVM
+  
       - 🌐 React: componentes, hooks (useState, useEffect, useContext, useReducer), consumo de APIs
+  
       - 🧠 Patrones de diseño: MVVM, MVC
+  
       - 🔌 APIs REST: consumo y manejo de datos
+  
       - 🛠️ Control de versiones con Git & GitHub
 
 👨‍💻 Abierto a aprender
