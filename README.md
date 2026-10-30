@@ -2,7 +2,7 @@
 
   <!-- Efecto de título animado (Typing SVG) -->
   <a href="https://github.com/dbritto">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=28&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=750&lines=Daniel+Britto;Backend+%26+Cloud+Software+Engineer;Hexagonal+Architecture+%C2%B7+CQRS+%C2%B7+Vertical+Slice;AWS+%26+Azure+Distributed+Systems;Spec-Driven+Development+(SDD)+%26+AI+Agents" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=26&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=800&lines=Daniel+Britto;Backend+%26+Cloud+Software+Engineer;DDD+%C2%B7+Hexagonal+Architecture+%C2%B7+CQRS+%C2%B7+Vertical+Slice;Rich+Domain+Models+%26+Distributed+Systems+(AWS+%2F+Azure);Spec-Driven+Development+(SDD)+%26+AI+Agent+Skills" alt="Typing SVG" />
   </a>
 
   <p align="center">
@@ -21,24 +21,25 @@
 
 ### ⚡ Sobre mí
 
-Diseño y construyo **sistemas backend distribuidos, transaccionales y nativos de la nube**. Mi trabajo se centra en crear plataformas donde las reglas de negocio críticas están protegidas mediante **Arquitectura Hexagonal (Ports & Adapters)**, **Vertical Slice Architecture** y **CQRS**, desplegadas sobre infraestructuras resilientes en **AWS** y **Azure**.
+Diseño y construyo **sistemas backend distribuidos, transaccionales y nativos de la nube**. Mi enfoque principal es el **Domain-Driven Design (DDD)** con **Modelos de Dominio Ricos**, donde el **100% de la lógica de negocio, invariantes y transiciones de estado viven encapsulados dentro de las Entidades y Agregados**, mientras que las capas externas (**CQRS**, casos de uso e infraestructura) se limitan estrictamente a orquestar, persistir y transportar.
 
-Integro flujos de **Ingeniería Asistida por IA de nivel empresarial**: **Spec-Driven Development (SDD)**, diseño de **Agent Skills**, servidores **MCP (Model Context Protocol)** y automatización determinista para acelerar el ciclo de vida de arquitectura, pruebas y despliegue sin sacrificar calidad ni seguridad.
+Combino **DDD + Arquitectura Hexagonal (Ports & Adapters) + Vertical Slice Architecture** sobre **AWS** y **Azure**, potenciando el ciclo de ingeniería mediante **Spec-Driven Development (SDD)**, **Agent Skills** y servidores **MCP (Model Context Protocol)**.
 
 ---
 
 ### 🛠️ Ecosistema Técnico & Cloud
 
-#### **Core Backend & Persistencia**
+#### **Core Backend, Arquitectura & Persistencia**
 <p>
   <img src="https://img.shields.io/badge/Node.js-0D1117?style=for-the-badge&logo=nodedotjs&logoColor=339933" />
   <img src="https://img.shields.io/badge/TypeScript-0D1117?style=for-the-badge&logo=typescript&logoColor=3178C6" />
+  <img src="https://img.shields.io/badge/DDD-Rich_Domain_Model-0D1117?style=for-the-badge&logo=diagramsdotnet&logoColor=38BDF8" />
+  <img src="https://img.shields.io/badge/Hexagonal_%26_CQRS-0D1117?style=for-the-badge&logo=serverless&logoColor=A855F7" />
   <img src="https://img.shields.io/badge/Express-0D1117?style=for-the-badge&logo=express&logoColor=white" />
   <img src="https://img.shields.io/badge/NestJS-0D1117?style=for-the-badge&logo=nestjs&logoColor=E0234E" />
   <img src="https://img.shields.io/badge/PostgreSQL-0D1117?style=for-the-badge&logo=postgresql&logoColor=4169E1" />
   <img src="https://img.shields.io/badge/Sequelize-0D1117?style=for-the-badge&logo=sequelize&logoColor=52B0E7" />
   <img src="https://img.shields.io/badge/Redis-0D1117?style=for-the-badge&logo=redis&logoColor=DC382D" />
-  <img src="https://img.shields.io/badge/React_/_Next.js-0D1117?style=for-the-badge&logo=nextdotjs&logoColor=white" />
 </p>
 
 #### **Amazon Web Services (AWS Backend Stack)**
@@ -75,50 +76,53 @@ Integro flujos de **Ingeniería Asistida por IA de nivel empresarial**: **Spec-D
 
 ### 🏛️ Arquitectura & Ingeniería de Software
 
-Organizo los sistemas combinando **Vertical Slice Architecture**, **Arquitectura Hexagonal** y **CQRS**, asegurando que cada capacidad de negocio sea independiente, auditable y desacoplada de proveedores cloud u ORMs.
+Construyo sistemas bajo la sinergia de **DDD (Domain-Driven Design)**, **Vertical Slice Architecture**, **Arquitectura Hexagonal** y **CQRS**, erradicando el antipatrón de *Modelo de Dominio Anémico*.
 
 ```mermaid
 flowchart LR
-    subgraph Entry["Driving Adapters"]
+    subgraph Entry["Driving Adapters (Transporte)"]
         API["REST / Webhooks"]
         Events["SQS / Service Bus"]
     end
 
     subgraph Slice["Vertical Slice (Feature Module)"]
         direction TB
-        subgraph CQRS["CQRS Layer"]
-            Cmd["Command Handler (Write)"]
-            Qry["Query Handler (Read)"]
+        subgraph CQRS["Capa de Aplicación (Orquestación CQRS)"]
+            Cmd["Command Handler (Coordina Transacción)"]
+            Qry["Query Handler (Proyección Directa)"]
         end
-        subgraph HexDomain["Hexagonal Domain Core"]
-            Agg["Aggregates & Value Objects"]
-            Ports["Outbound Ports (Interfaces)"]
+        subgraph HexDomain["Núcleo DDD & Hexagonal (100% Lógica de Negocio)"]
+            Agg["Rich Entities, Aggregates & Value Objects"]
+            Ports["Outbound Ports (Contratos)"]
         end
     end
 
-    subgraph Infra["Driven Adapters (Cloud & DB)"]
+    subgraph Infra["Driven Adapters (Infraestructura)"]
         PG[("PostgreSQL (Sequelize)")]
         CloudBlob[("Azure Blob / AWS S3")]
         Cache[("Redis Cache")]
     end
 
     Entry --> CQRS
-    Cmd --> Agg --> Ports
+    Cmd -->|"Delega decisión de negocio"| Agg
+    Agg -->|"Garantiza invariantes"| Ports
     Qry --> PG
     Qry --> Cache
-    Ports -.-> PG
-    Ports -.-> CloudBlob
+    Ports -.->|"Implementado por"| PG
+    Ports -.->|"Implementado por"| CloudBlob
 ```
 
-- **Hexagonal + Vertical Slicing:** El dominio tributario, financiero o transaccional no conoce de `Sequelize`, `AWS SDK` ni `@azure/storage-blob`. Los adaptadores implementan contratos estrictos (Puertos) dentro de cada *Slice*.
-- **CQRS & Consistencia Eventual/ACID:** Separación entre mutaciones transaccionales (bloqueos de fila, control de idempotencia, *Unit of Work*) y proyecciones de lectura de baja latencia.
-- **Spec-Driven Development (SDD) & Agent Skills:** Definición de especificaciones formales, contratos de arquitectura, *guardrails* y **Skills reutilizables para agentes de IA** que estandarizan la generación de código, migraciones, pruebas de integración y validación de reglas de dominio.
+- **DDD & Rich Domain Models (Cero Modelos Anémicos):** Las entidades y *Aggregate Roots* concentran el **100% de las reglas de negocio**, cálculos e invariantes mediante métodos de comportamiento expresivos y *Value Objects* inmutables. Ninguna entidad expone mutaciones arbitrarias fuera de sus reglas de dominio.
+- **Capas Externas como Orquestadores Puros:** Los *Command Handlers* (Aplicación) no toman decisiones de negocio; únicamente hidratan el agregado a través de los *Ports*, invocan el comportamiento de la entidad y coordinan la persistencia transaccional (*Unit of Work*) o la emisión de eventos.
+- **Hexagonal + Vertical Slicing:** Cada capacidad de negocio vive aislada en su propio *Slice*. El dominio no conoce de `Sequelize`, `AWS SDK` ni `@azure/storage-blob`.
+- **CQRS (Write vs. Read Model):** Escrituras gobernadas por el modelo rico de dominio con garantías **ACID** en PostgreSQL, y lecturas desacopladas mediante *Queries* de baja latencia.
+- **Spec-Driven Development (SDD) & Agent Skills:** Especificaciones técnicas formales y **Skills para agentes de IA** que obligan a respetar las fronteras del dominio, contratos de puertos y cobertura de pruebas desde la generación del código.
 
 ---
 
 ### 🚀 Enfoque Actual
 
-- 🧾 **Motores de Facturación Electrónica & Core Transaccional ([Factus](https://github.com/dbritto/Factus_facturacion_electronica)):** Implementación con **Hexagonal Architecture + CQRS + Vertical Slice**, persistencia ACID en **PostgreSQL (Sequelize)** y resguardo criptográfico de XML/PDF en **Azure Blob Storage**.
+- 🧾 **Motores de Facturación Electrónica & Core Transaccional ([Factus](https://github.com/dbritto/Factus_facturacion_electronica)):** Implementación con **DDD + Hexagonal Architecture + CQRS + Vertical Slice**, persistencia ACID en **PostgreSQL (Sequelize)** y resguardo criptográfico de XML/PDF en **Azure Blob Storage**.
 - ☁️ **Arquitecturas Cloud Híbridas (AWS & Azure):** Procesamiento distribuido basado en eventos (**SQS / SNS / EventBridge / Azure Service Bus**), almacenamiento seguro con **S3 / Blob Storage** (*SAS Tokens & Presigned URLs*) y cómputo serverless.
 - 🤖 **Ingeniería Basada en Especificaciones (SDD) & Ecosistema Agentic:** Creación de **Agent Skills** personalizadas, reglas de contexto arquitectónico y automatización de pipelines de desarrollo guiados por especificaciones técnicas verificables.
 
@@ -128,13 +132,19 @@ flowchart LR
 
 <div align="center">
 
-  <!-- Tarjetas de Estadísticas y Racha de Commits (Streak) -->
-  <img height="165em" src="https://github-readme-stats.vercel.app/api?username=dbritto&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=38BDF8&icon_color=38BDF8&include_all_commits=true&count_private=true" alt="GitHub Stats" />
-  <img height="165em" src="https://streak-stats.demolab.com?user=dbritto&theme=tokyonight&hide_border=true&background=0D1117&ring=38BDF8&fire=A855F7&currStreakLabel=38BDF8" alt="GitHub Streak" />
+  <!-- Gráfica de Actividad de Commits + Resumen General (Servidor Estable) -->
+  <img width="98%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=dbritto&theme=tokyonight" alt="Perfil y Commits de Daniel Britto" />
 
   <br/>
 
-  <!-- Gráfica de Actividad de Commits en Tiempo Real -->
-  <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=dbritto&bg_color=0D1117&color=38BDF8&line=A855F7&point=FFFFFF&area=true&hide_border=true" alt="Commit Activity Graph" />
+  <!-- Racha de Commits (Streak), Estadísticas y Lenguajes por Commit -->
+  <img height="165em" src="https://streak-stats.demolab.com?user=dbritto&theme=tokyonight&hide_border=true&background=0D1117&ring=38BDF8&fire=A855F7&currStreakLabel=38BDF8" alt="GitHub Streak" />
+  <img height="165em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=dbritto&theme=tokyonight" alt="GitHub Stats" />
+  <img height="165em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=dbritto&theme=tokyonight" alt="Commits por Lenguaje" />
+
+  <br/><br/>
+
+  <!-- Mapa de Calor de Contribuciones personalizado en Azul Cian -->
+  <img width="95%" src="https://ghchart.rshah.org/38BDF8/dbritto" alt="Mapa de Commits de dbritto" />
 
 </div>
