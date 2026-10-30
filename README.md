@@ -1,8 +1,8 @@
 <div align="center">
 
-  <!-- Efecto de título animado (Typing SVG) -->
+  <!-- Efecto de título animado con frases cortas para que nunca se corten -->
   <a href="https://github.com/dbritto">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=26&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=800&lines=Daniel+Britto;Backend+%26+Cloud+Software+Engineer;DDD+%C2%B7+Hexagonal+Architecture+%C2%B7+CQRS+%C2%B7+Vertical+Slice;Rich+Domain+Models+%26+Distributed+Systems+(AWS+%2F+Azure);Spec-Driven+Development+(SDD)+%26+AI+Agent+Skills" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&duration=2600&pause=900&color=38BDF8&center=true&vCenter=true&width=800&lines=Daniel+Britto;Backend+%26+Cloud+Engineer;Domain-Driven+Design+(DDD);Hexagonal+Architecture+%26+CQRS;Vertical+Slice+Architecture;AWS+%26+Azure+Cloud+Systems;SDD+%26+AI+Agent+Workflows" alt="Typing SVG" />
   </a>
 
   <p align="center">
